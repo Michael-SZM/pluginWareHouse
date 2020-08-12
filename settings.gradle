@@ -1,0 +1,4 @@
+include ':MutiClickInterceptPlugin'
+include ':BaseTransform'
+include ':app'
+rootProject.name = "PluginWareHouse"

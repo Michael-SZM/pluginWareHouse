@@ -1,0 +1,42 @@
+plugins {
+    id 'kotlin'
+    id 'groovy'
+    id 'maven'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:3.1.4'
+    implementation 'com.android.tools.build:gradle-api:3.1.4'
+
+    implementation 'org.ow2.asm:asm:5.1'
+    //noinspection GradleDependency
+    implementation 'org.ow2.asm:asm-util:5.1'
+    //noinspection GradleDependency
+    implementation 'org.ow2.asm:asm-commons:5.1'
+
+    implementation project(":BaseTransform")
+}
+
+repositories {
+    mavenCentral()
+}
+
+//group和version在后面使用自定义插件的时候会用到
+group='com.micheal.clickfilterplugin'
+version='1.0.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //提交到远程服务器：
+            // repository(url: "http://www.xxx.com/repos") {
+            //    authentication(userName: "admin", password: "admin")
+            // }
+            //本地的Maven地址设置为D:/repos
+            repository(url: uri('/Users/michaelszm/maven-local'))
+        }
+    }
+}
