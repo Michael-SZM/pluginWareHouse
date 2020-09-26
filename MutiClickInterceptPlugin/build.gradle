@@ -17,7 +17,8 @@ dependencies {
     //noinspection GradleDependency
     implementation 'org.ow2.asm:asm-commons:5.1'
 
-    implementation project(":BaseTransform")
+//    implementation project(":BaseTransform")
+    implementation 'com.base.transform:BaseTransform:1.0.0'
 }
 
 repositories {
@@ -26,15 +27,15 @@ repositories {
 
 //group和version在后面使用自定义插件的时候会用到
 group='com.micheal.clickfilterplugin'
-version='1.0.0'
+version='1.0.4'
 
 uploadArchives {
     repositories {
         mavenDeployer {
             //提交到远程服务器：
-            // repository(url: "http://www.xxx.com/repos") {
-            //    authentication(userName: "admin", password: "admin")
-            // }
+//             repository(url: "http://127.0.0.1:8081/repository/michael-szm-test01/") {
+//                authentication(userName: "michaelszm", password: "szm12345")
+//             }
             //本地的Maven地址设置为D:/repos
             repository(url: uri('/Users/michaelszm/maven-local'))
         }
